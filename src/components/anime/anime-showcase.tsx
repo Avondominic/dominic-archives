@@ -152,6 +152,14 @@ export function AnimeShowcase() {
           }}
           exit={{ opacity: 0, transition: { duration: xfadeDuration, ease: EASE } }}
         >
+          {/* Mobile accent backdrop — only visible on phones, fills space behind contain'd image */}
+          <div
+            className="md:hidden absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${current.accent} 0%, ${hexToRgba(current.accent, 0.4)} 45%, #06060A 100%)`,
+            }}
+          />
+
           {/* Parallax art wrapper */}
           <motion.div className="absolute inset-[-5%]" style={{ x: bgX, y: bgY }}>
             <HeroImage
@@ -404,6 +412,16 @@ function HeroImage({
           </defs>
         </svg>
       )}
+      {/* Mobile-only override: show full image, kill zoom crop, center it */}
+      <style>{`
+        @media (max-width: 767px) {
+          .hero-img-da {
+            object-fit: contain !important;
+            object-position: center center !important;
+            transform: none !important;
+          }
+        }
+      `}</style>
       <Image
         src={src}
         alt={alt}
@@ -413,7 +431,7 @@ function HeroImage({
         sizes="100vw"
         placeholder="blur"
         blurDataURL={blurDataURL}
-        className="object-cover"
+        className="hero-img-da object-cover"
         style={{
           filter: composedFilter,
           transform: zoom !== 1 ? `scale(${zoom})` : undefined,
