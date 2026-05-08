@@ -158,7 +158,6 @@ export function AnimeShowcase() {
               src={current.image}
               alt={current.title}
               slug={current.slug}
-              accent={current.accent}
             />
           </motion.div>
 
@@ -375,12 +374,10 @@ function HeroImage({
   src,
   alt,
   slug,
-  accent = "#0A0A0F",
 }: {
   src: string;
   alt: string;
   slug: string;
-  accent?: string;
 }) {
   const hasSrc = !!src;
   const [failed, setFailed] = useState(!hasSrc);
