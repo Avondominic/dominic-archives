@@ -150,7 +150,7 @@ function SectionLabel({
   return (
     <div className="flex items-center gap-5 mb-8">
       <span
-        className="font-display text-7xl md:text-8xl leading-none tabular-nums"
+        className="font-display text-5xl sm:text-7xl md:text-8xl leading-none tabular-nums"
         style={{ color: accent, opacity: 0.2, textShadow: `0 0 60px ${hex(accent, 0.3)}` }}
       >
         {n}
@@ -241,7 +241,7 @@ function ThreatLevel({ accent, level = 5 }: { accent: string; level?: number }) 
 function AtmosphericQuote({ text, accent }: { text: string; accent: string }) {
   return (
     <Reveal>
-      <div className="my-24 md:my-32 text-center">
+      <div className="my-12 sm:my-24 md:my-32 text-center">
         <div
           className="block h-px w-16 mx-auto mb-10"
           style={{ background: hex(accent, 0.5) }}
@@ -580,7 +580,7 @@ function HeroSection({ anime }: { anime: Anime }) {
       {/* ── content ── */}
       <motion.div
         style={reduceMotion ? undefined : { opacity: contentOpacity, y: contentY }}
-        className="relative z-10 w-full max-w-7xl mx-auto px-8 md:px-16 pb-24 md:pb-32"
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-8 md:px-16 pb-20 sm:pb-24 md:pb-32"
       >
         {/* Back breadcrumb */}
         <motion.div
@@ -605,7 +605,7 @@ function HeroSection({ anime }: { anime: Anime }) {
         {/* Kinetic title */}
         <h1
           className="font-display uppercase leading-[0.82] tracking-tight text-luxury-platinum mb-8 select-none"
-          style={{ fontSize: "clamp(4rem, 13vw, 12rem)" }}
+          style={{ fontSize: "clamp(2.4rem, 11vw, 12rem)" }}
         >
           <KineticTitle text={anime.title} accent={anime.accentColor} />
         </h1>
@@ -615,7 +615,7 @@ function HeroSection({ anime }: { anime: Anime }) {
           initial={{ opacity: 0, y: 22 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4, ease: EASE }}
-          className="font-body text-base md:text-xl text-luxury-platinum/65 max-w-2xl leading-relaxed"
+          className="font-body text-sm sm:text-base md:text-xl text-luxury-platinum/65 max-w-2xl leading-relaxed"
         >
           {anime.tagline}
         </motion.p>
@@ -695,7 +695,7 @@ function StoryChunk({
           <p
             key={i}
             className="font-body text-luxury-silver"
-            style={{ fontSize: "1.125rem", lineHeight: 1.85, letterSpacing: "0.01em" }}
+            style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.125rem)", lineHeight: 1.85, letterSpacing: "0.01em" }}
           >
             {s}
           </p>
@@ -773,13 +773,13 @@ function StorylineSection({ anime }: { anime: Anime }) {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16 lg:pl-28">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-16 lg:pl-28">
         {/* Header */}
-        <Reveal className="mb-24 md:mb-28">
+        <Reveal className="mb-12 sm:mb-20 md:mb-28">
           <SectionLabel n="01" subtitle="Origin Story" accent={anime.accentColor} />
           <h2
             className="font-display uppercase leading-[0.85] tracking-tight text-luxury-platinum"
-            style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 8vw, 7.5rem)" }}
           >
             The Story
           </h2>
@@ -840,13 +840,13 @@ function ProtagonistSection({ anime }: { anime: Anime }) {
         }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-16">
         {/* Header */}
-        <Reveal className="mb-20 md:mb-28">
+        <Reveal className="mb-10 sm:mb-16 md:mb-28">
           <SectionLabel n="02" subtitle="The Protagonist" accent={accent} />
           <h2
             className="font-display uppercase leading-[0.85] tracking-tight text-luxury-platinum"
-            style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 8vw, 7.5rem)" }}
           >
             The Hero
           </h2>
@@ -874,7 +874,7 @@ function ProtagonistSection({ anime }: { anime: Anime }) {
                 <h3
                   className="font-display uppercase leading-[0.85] tracking-tight"
                   style={{
-                    fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                    fontSize: "clamp(2rem, 7vw, 5.5rem)",
                     color: accent,
                     textShadow: `0 0 80px ${hex(accent, 0.5)}`,
                   }}
@@ -888,7 +888,7 @@ function ProtagonistSection({ anime }: { anime: Anime }) {
             <Reveal delay={0.25}>
               <p
                 className="font-body text-luxury-silver max-w-[60ch]"
-                style={{ fontSize: "1.125rem", lineHeight: 1.85, letterSpacing: "0.01em" }}
+                style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.125rem)", lineHeight: 1.85, letterSpacing: "0.01em" }}
               >
                 {shortDescription}
               </p>
@@ -943,13 +943,13 @@ function AntagonistSection({ anime }: { anime: Anime }) {
         style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-8 md:px-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 md:px-16">
         {/* Header */}
-        <Reveal className="mb-20 md:mb-28">
+        <Reveal className="mb-10 sm:mb-16 md:mb-28">
           <SectionLabel n="03" subtitle="The Antagonist" accent={accent} />
           <h2
             className="font-display uppercase leading-[0.85] tracking-tight text-luxury-platinum"
-            style={{ fontSize: "clamp(3rem, 9vw, 7.5rem)" }}
+            style={{ fontSize: "clamp(2.2rem, 8vw, 7.5rem)" }}
           >
             The Villain
           </h2>
@@ -968,7 +968,7 @@ function AntagonistSection({ anime }: { anime: Anime }) {
                 <h3
                   className="font-display uppercase leading-[0.85] tracking-tight"
                   style={{
-                    fontSize: "clamp(3rem, 7vw, 5.5rem)",
+                    fontSize: "clamp(2rem, 7vw, 5.5rem)",
                     color: accent,
                     textShadow: `0 0 80px ${hex(accent, 0.55)}`,
                   }}
@@ -987,7 +987,7 @@ function AntagonistSection({ anime }: { anime: Anime }) {
             <Reveal delay={0.3}>
               <p
                 className="font-body text-luxury-silver max-w-[60ch]"
-                style={{ fontSize: "1.125rem", lineHeight: 1.85, letterSpacing: "0.01em" }}
+                style={{ fontSize: "clamp(0.95rem, 2.5vw, 1.125rem)", lineHeight: 1.85, letterSpacing: "0.01em" }}
               >
                 {shortDescription}
               </p>
@@ -1024,7 +1024,7 @@ function BackCTA({ anime }: { anime: Anime }) {
 
   return (
     <section
-      className="relative py-40 px-6"
+      className="relative py-20 sm:py-32 md:py-40 px-4 sm:px-6"
       style={{ borderTop: `1px solid ${hex(accent, 0.1)}` }}
     >
       {/* Upward glow */}
@@ -1056,7 +1056,7 @@ function BackCTA({ anime }: { anime: Anime }) {
 
         <Link
           href="/"
-          className="group relative inline-flex items-center gap-4 px-10 py-4 font-body text-xs tracking-[0.35em] uppercase overflow-hidden transition-all duration-500"
+          className="group relative w-full sm:w-auto inline-flex items-center justify-center gap-4 px-10 py-4 font-body text-xs tracking-[0.35em] uppercase overflow-hidden transition-all duration-500"
           style={{
             border: `1px solid ${hex(accent, 0.6)}`,
             color: accent,

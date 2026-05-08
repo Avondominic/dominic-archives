@@ -236,7 +236,7 @@ export function AnimeShowcase() {
                     transition={{ duration: 0.75, ease: EASE_SHARP, delay: 0 }}
                     className="font-display uppercase leading-[0.85] tracking-tight text-luxury-platinum"
                     style={{
-                      fontSize: "clamp(3.2rem, 11vw, 11rem)",
+                      fontSize: "clamp(2.2rem, 10vw, 11rem)",
                       textShadow: `0 0 80px ${hexToRgba(current.accent, 0.45)}, 0 4px 30px rgba(0,0,0,0.6)`,
                     }}
                   >
@@ -249,7 +249,7 @@ export function AnimeShowcase() {
                   initial={{ opacity: 0, y: reduceMotion ? 0 : 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.7, delay: 0.18, ease: EASE }}
-                  className="font-body text-sm sm:text-base md:text-xl text-luxury-platinum/75 max-w-xl leading-relaxed mb-8 sm:mb-10"
+                  className="font-body text-sm sm:text-base md:text-xl text-luxury-platinum/75 max-w-sm sm:max-w-xl leading-relaxed mb-6 sm:mb-8 md:mb-10"
                 >
                   {current.tagline}
                 </motion.p>
@@ -262,7 +262,7 @@ export function AnimeShowcase() {
                 >
                   <Link
                     href={`/anime/${current.slug}`}
-                    className="group relative inline-flex items-center gap-3 sm:gap-4 px-6 sm:px-9 py-3 sm:py-4 font-body text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-medium overflow-hidden transition-all duration-500"
+                    className="group relative w-full sm:w-auto inline-flex items-center justify-center sm:justify-start gap-3 sm:gap-4 px-6 sm:px-9 py-4 sm:py-4 font-body text-[10px] sm:text-xs tracking-[0.3em] sm:tracking-[0.35em] uppercase font-medium overflow-hidden transition-all duration-500"
                     style={{
                       background: current.accent,
                       color: "#0A0A0F",
@@ -288,7 +288,7 @@ export function AnimeShowcase() {
       <NavArrow direction="right" onClick={next} accent={current.accent} label="Next anime" />
 
       {/* ── swipe hint — mobile only ── */}
-      <div className="md:hidden absolute bottom-20 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 font-body text-[9px] tracking-[0.35em] uppercase text-luxury-platinum/35">
+      <div className="md:hidden absolute bottom-[4.5rem] left-1/2 -translate-x-1/2 z-20 flex items-center gap-2 font-body text-[9px] tracking-[0.35em] uppercase text-luxury-platinum/35">
         <span>←</span>
         <span>Swipe</span>
         <span>→</span>
@@ -483,7 +483,12 @@ const PARTICLE_DATA = Array.from({ length: 28 }, (_, i) => ({
 }));
 
 function ParticleField({ accent }: { accent: string }) {
-  const particles = useMemo(() => PARTICLE_DATA, []);
+  const particles = useMemo(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) {
+      return PARTICLE_DATA.slice(0, 10);
+    }
+    return PARTICLE_DATA;
+  }, []);
   return (
     <div className="absolute inset-0 z-[5] pointer-events-none overflow-hidden">
       {particles.map((p) => (

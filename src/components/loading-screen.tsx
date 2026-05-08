@@ -92,7 +92,7 @@ export function LoadingScreen() {
             {/* ── "Dominic Archives" — fades out as brush sweeps ── */}
             <motion.h1
               className="font-display uppercase text-center leading-none tracking-[0.08em]"
-              style={{ fontSize: "clamp(2.8rem, 6vw, 80px)", color: "#ffffff" }}
+              style={{ fontSize: "clamp(1.9rem, 6vw, 80px)", color: "#ffffff" }}
               initial={{ opacity: 0, y: 22 }}
               animate={{
                 opacity: phase === "title" ? 1 : 0,
@@ -129,7 +129,7 @@ export function LoadingScreen() {
                 className="text-white text-center leading-none whitespace-nowrap"
                 style={{
                   fontFamily: "var(--font-hina), serif",
-                  fontSize: "clamp(2.8rem, 6vw, 80px)",
+                  fontSize: "clamp(1.9rem, 6vw, 80px)",
                   /* Ink bleed — soft white halo around each kanji */
                   textShadow: [
                     "0 0 6px rgba(255,255,255,0.55)",
