@@ -1,0 +1,37 @@
+{
+  "expo": {
+    "name": "Student Productivity",
+    "slug": "student-productivity-app",
+    "scheme": "studentproductivity",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#08080B",
+    "splash": {
+      "backgroundColor": "#08080B",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.studentproductivity.app"
+    },
+    "android": {
+      "package": "com.studentproductivity.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#08080B"
+      },
+      "permissions": [
+        "android.permission.PACKAGE_USAGE_STATS",
+        "android.permission.SYSTEM_ALERT_WINDOW",
+        "android.permission.FOREGROUND_SERVICE"
+      ]
+    },
+    "plugins": ["expo-router", "./plugins/withFocusBlockerAndroid.js"],
+    "extra": {
+      "eas": {
+        "projectId": "REPLACE_WITH_YOUR_EAS_PROJECT_ID"
+      }
+    }
+  }
+}
